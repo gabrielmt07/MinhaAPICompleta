@@ -5,6 +5,7 @@ using DevIO.Api.ViewModels;
 using DevIO.Business.Intefaces;
 using AutoMapper;
 using System;
+using DevIO.Business.Models;
 
 namespace DevIO.Api.Controllers
 {
@@ -12,6 +13,7 @@ namespace DevIO.Api.Controllers
     public class FornecedoresController : MainController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
+        private readonly IFornecedorService _fornecedorService;
         private readonly IMapper _mapper;
 
         public FornecedoresController(IFornecedorRepository fornecedorRepository, IMapper mapper)
@@ -38,9 +40,56 @@ namespace DevIO.Api.Controllers
             return fornecedor;
         }
 
-        public async Task<FornecedorViewModel> ObterFornecedorProdutoEndereco(Guid Id)
+        [HttpPost]
+        public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
-            return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedorProdutosEndereco(Id));
+            if (!ModelState.IsValid) return BadRequest();
+
+            var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
+            var result = await _fornecedorService.Adicionar(fornecedor);
+
+            if (!result) return BadRequest();
+
+            return Ok(fornecedor);
+        }
+
+        [HttpPut("id:guid")]
+        public async Task<ActionResult<FornecedorViewModel>> Atualizar(Guid id, FornecedorViewModel fornecedorViewModel)
+        {
+            if (id != fornecedorViewModel.Id) return BadRequest(id);
+
+            if (!ModelState.IsValid) return BadRequest();
+
+            var fornecedor = _mapper.Map<Fornecedor>(fornecedorViewModel);
+            var result = await _fornecedorService.Atualizar(fornecedor);
+
+            if (!result) return BadRequest();
+
+            return Ok(fornecedor);
+        }
+
+        [HttpDelete("id:guid")]
+        public async Task<ActionResult<FornecedorViewModel>> Excluir(Guid id)
+        {
+            var fornecedor = await ObterFornecedorEndereco(id);
+
+            if (fornecedor == null) return NotFound();
+
+            var result = await _fornecedorService.Remover(id);
+
+            if (!result) return BadRequest();
+
+            return Ok(fornecedor);
+        }
+
+        public async Task<FornecedorViewModel> ObterFornecedorProdutoEndereco(Guid id)
+        {
+            return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedorProdutosEndereco(id));
+        }
+
+        public async Task<FornecedorViewModel> ObterFornecedorEndereco(Guid Id)
+        {
+            return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedorEndereco(id));
         }
 
     }
