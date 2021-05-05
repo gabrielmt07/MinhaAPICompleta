@@ -72,3 +72,4 @@ C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.dll
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.pdb
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.genruntimeconfig.cache
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.MvcApplicationPartsAssemblyInfo.cs

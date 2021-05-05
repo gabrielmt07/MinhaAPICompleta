@@ -33,6 +33,6 @@ namespace DevIO.Api.ViewModels
         public bool Ativo { get; set; }
 
         [ScaffoldColumn(false)]
-        public DateTime NomeFornecedor { get; set; }
+        public string NomeFornecedor { get; set; }
     }
 }
