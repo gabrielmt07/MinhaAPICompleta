@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DevIO.Api.Configurations;
 using DevIO.Data.Context;
+using Microsoft.IdentityModel.Logging;
 
 namespace DevIO.Api
 {
@@ -39,12 +40,21 @@ namespace DevIO.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
             });
+
+            IdentityModelEventSource.ShowPII = true;
+            var policy = new Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder()
+                .AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .Build();
+
+            services.AddCors(x => x.AddPolicy("GlobalCors", policy));
 
             services.ResolveDependencies();
         }
@@ -56,10 +66,15 @@ namespace DevIO.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("GlobalCors");
             app.UseRouting();
+            
 
             app.UseAuthentication();
             app.UseAuthorization();
@@ -68,6 +83,9 @@ namespace DevIO.Api
             {
                 endpoints.MapControllers();
             });
+
+            //app.UseMvc();
+
         }
     }
 }
