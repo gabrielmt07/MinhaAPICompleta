@@ -73,3 +73,6 @@ C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.pdb
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.genruntimeconfig.cache
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp3.1\DevIO.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll

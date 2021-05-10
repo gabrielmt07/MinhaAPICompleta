@@ -40,21 +40,7 @@ namespace DevIO.Api
 
             services.AddAutoMapper(typeof(Startup));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
-
-            services.Configure<ApiBehaviorOptions>(options =>
-            {
-                options.SuppressModelStateInvalidFilter = true;
-            });
-
-            IdentityModelEventSource.ShowPII = true;
-            var policy = new Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder()
-                .AllowAnyOrigin()
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .Build();
-
-            services.AddCors(x => x.AddPolicy("GlobalCors", policy));
+            services.WebApiConfig();
 
             services.ResolveDependencies();
         }
