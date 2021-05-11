@@ -16,7 +16,8 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DevIO.Api.Configurations;
 using DevIO.Data.Context;
-using Microsoft.IdentityModel.Logging;
+using DevIO.Api.Configurations;
+
 
 namespace DevIO.Api
 {
@@ -37,6 +38,8 @@ namespace DevIO.Api
                 //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
                 options.UseSqlServer(@"Server=.\SQLEXPRESS;Database=devio;Trusted_Connection=True;");
             });
+
+            services.AddIdentityConfiguration(Configuration);
 
             services.AddAutoMapper(typeof(Startup));
 
