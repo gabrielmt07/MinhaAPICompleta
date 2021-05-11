@@ -16,8 +16,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DevIO.Api.Configurations;
 using DevIO.Data.Context;
-using DevIO.Api.Configurations;
-
+using Microsoft.IdentityModel.Logging;
 
 namespace DevIO.Api
 {
@@ -67,6 +66,7 @@ namespace DevIO.Api
 
             app.UseAuthentication();
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
