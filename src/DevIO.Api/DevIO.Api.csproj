@@ -7,9 +7,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="NewFolder1\**" />
 	  <Compile Remove="wwwroot\app\**" />
+	  <Content Remove="NewFolder1\**" />
 	  <Content Remove="wwwroot\app\**" />
+	  <EmbeddedResource Remove="NewFolder1\**" />
 	  <EmbeddedResource Remove="wwwroot\app\**" />
+	  <None Remove="NewFolder1\**" />
 	  <None Remove="wwwroot\app\**" />
 	</ItemGroup>
 
@@ -38,7 +42,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Extensions\" />
 	  <Folder Include="wwwroot\imagens\" />
 	</ItemGroup>
 
