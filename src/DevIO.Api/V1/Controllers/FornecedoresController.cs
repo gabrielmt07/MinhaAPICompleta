@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
+using DevIO.Api.Controllers;
 using DevIO.Api.Extensions;
 using DevIO.Api.ViewModels;
 using DevIO.Business.Intefaces;
@@ -10,10 +11,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace DevIO.Api.Controllers
+namespace DevIO.Api.V1.Controllers
 {
     [Authorize]
-    [Route("api/fornecedores")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/fornecedores")]
     public class FornecedoresController : MainController
     {
         private readonly IFornecedorRepository _fornecedorRepository;
@@ -24,7 +26,7 @@ namespace DevIO.Api.Controllers
         public FornecedoresController(IFornecedorRepository fornecedorRepository,
                                       IMapper mapper,
                                       IFornecedorService fornecedorService,
-                                      INotificador notificador, 
+                                      INotificador notificador,
                                       IEnderecoRepository enderecoRepository,
                                       IUser user) : base(notificador, user)
         {
@@ -34,6 +36,7 @@ namespace DevIO.Api.Controllers
             _enderecoRepository = enderecoRepository;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public async Task<IEnumerable<FornecedorViewModel>> ObterTodos()
         {
@@ -41,7 +44,7 @@ namespace DevIO.Api.Controllers
 
             return fornecedor;
         }
-        
+
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<FornecedorViewModel>> ObterPorId(Guid id)
         {
@@ -58,7 +61,7 @@ namespace DevIO.Api.Controllers
             return _mapper.Map<EnderecoViewModel>(await _enderecoRepository.ObterPorId(id));
         }
 
-        [ClaimsAuthorize("Fornecedor","Adicionar")]
+        [ClaimsAuthorize("Fornecedor", "Adicionar")]
         [HttpPost]
         public async Task<ActionResult<FornecedorViewModel>> Adicionar(FornecedorViewModel fornecedorViewModel)
         {
@@ -113,7 +116,7 @@ namespace DevIO.Api.Controllers
             {
                 NotificarErro("O id informado não é o mesmo que foi passado na query");
                 return CustomResponse(enderecoViewModel);
-            }              
+            }
 
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
