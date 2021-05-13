@@ -44,6 +44,7 @@ namespace DevIO.Api
 
             services.WebApiConfig();
 
+
             services.ResolveDependencies();
         }
 

@@ -11,7 +11,7 @@ import { BaseService } from 'src/app/base/baseService';
 export class ProdutoService extends BaseService {
     constructor(private http: HttpClient) { super() }
 
-    protected UrlServiceV1: string = "https://localhost:5001/api/"
+    protected UrlServiceV1: string = "https://localhost:5001/api/v1/"
 
     obterTodos(): Observable<Produto[]> {
         return this.http

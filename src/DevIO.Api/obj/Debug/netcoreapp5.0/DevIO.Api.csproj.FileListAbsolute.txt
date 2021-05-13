@@ -166,3 +166,8 @@ C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp5.
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\obj\Debug\netcoreapp5.0\DevIO.Api.genruntimeconfig.cache
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Microsoft.OpenApi.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\USER\source\repos\MinhaAPICompleta\src\DevIO.Api\bin\Debug\netcoreapp5.0\Swashbuckle.AspNetCore.Annotations.dll
