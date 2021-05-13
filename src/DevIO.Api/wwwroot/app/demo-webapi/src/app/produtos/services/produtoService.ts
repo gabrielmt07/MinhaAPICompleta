@@ -30,7 +30,9 @@ export class ProdutoService extends BaseService {
             );
     }
 
-    registrarProduto(produto: Produto): Observable<Produto> {       
+    registrarProduto(produto: Produto): Observable<Produto> {
+
+        var produtJson = JSON.stringify(produto);
         return this.http
             .post(this.UrlServiceV1 + 'produtos', produto, super.ObterHeaderJson())
             .pipe(
